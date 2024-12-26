@@ -1,0 +1,110 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Library Documentation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            padding: 20px;
+            background: #f9f9f9;
+            color: #333;
+        }
+        h1, h2, h3 {
+            color: #007aff;
+        }
+        code {
+            background: #f4f4f4;
+            padding: 2px 4px;
+            border-radius: 4px;
+        }
+        pre {
+            background: #f4f4f4;
+            padding: 10px;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+        .section {
+            margin-bottom: 40px;
+        }
+        a {
+            color: #007aff;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>CSS Library Documentation</h1>
+    <p>This library provides ready-to-use CSS styles inspired by macOS. It includes styles for buttons, input fields, text elements, links, and context menus.</p>
+
+    <div class="section">
+        <h2>1. Buttons</h2>
+        <p>Styled buttons with hover and active effects:</p>
+        <pre><code>&lt;button class="mac-button"&gt;Default Button&lt;/button&gt;
+&lt;button class="mac-button mac-button-accent"&gt;Accent Button&lt;/button&gt;
+&lt;button class="mac-button mac-button-disabled" disabled&gt;Disabled Button&lt;/button&gt;</code></pre>
+    </div>
+
+    <div class="section">
+        <h2>2. Input Fields</h2>
+        <p>Styled input elements including text, checkboxes, and radio buttons:</p>
+        <pre><code>&lt;input type="text" class="mac-input" placeholder="Enter text"&gt;
+&lt;input type="checkbox" class="mac-checkbox"&gt;
+&lt;input type="radio" class="mac-radio"&gt;</code></pre>
+    </div>
+
+    <div class="section">
+        <h2>3. Sliders</h2>
+        <p>A modern slider design:</p>
+        <pre><code>&lt;input type="range" class="mac-slider" min="0" max="100"&gt;</code></pre>
+    </div>
+
+    <div class="section">
+        <h2>4. Text Elements</h2>
+        <p>Styled text elements for various use cases:</p>
+        <pre><code>&lt;p class="mac-text"&gt;Default Text&lt;/p&gt;
+&lt;p class="mac-text-small"&gt;Small Text&lt;/p&gt;
+&lt;p class="mac-text-large"&gt;Large Text&lt;/p&gt;
+&lt;p class="mac-text-muted"&gt;Muted Text&lt;/p&gt;</code></pre>
+    </div>
+
+    <div class="section">
+        <h2>5. Links</h2>
+        <p>Styled links with hover and active effects:</p>
+        <pre><code>&lt;a href="#" class="mac-link"&gt;Styled Link&lt;/a&gt;</code></pre>
+    </div>
+
+    <div class="section">
+        <h2>6. Context Menu</h2>
+        <p>A styled context menu with interactivity:</p>
+        <pre><code>&lt;ul class="mac-context-menu"&gt;
+    &lt;li class="mac-context-menu-item"&gt;Option 1&lt;/li&gt;
+    &lt;li class="mac-context-menu-item"&gt;Option 2&lt;/li&gt;
+    &lt;li class="mac-context-menu-item"&gt;Option 3&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+        <p>Add the following JavaScript for functionality:</p>
+        <pre><code>document.addEventListener('contextmenu', (e) => {
+    e.preventDefault();
+    const menu = document.getElementById('context-menu');
+    menu.style.left = `${e.pageX}px`;
+    menu.style.top = `${e.pageY}px`;
+    menu.classList.add('active');
+});
+
+document.addEventListener('click', () => {
+    const menu = document.getElementById('context-menu');
+    menu.classList.remove('active');
+});</code></pre>
+    </div>
+
+    <footer>
+        <p>For more information, visit the <a href="https://github.com/ferdelll/simple_appleUI">project repository</a>.</p>
+    </footer>
+</body>
+</html>

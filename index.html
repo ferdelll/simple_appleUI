@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/appleUi.css">
+    <title>AppleUIDemo</title>
+</head>
+<body>
+    <div class="content">
+        <div class="mac-container">
+        <button class="mac-button">Обычная кнопка</button>
+        <button class="mac-button mac-button-accent">Акцентная кнопка</button>
+        <button class="mac-button mac-button-disabled" disabled>Отключенная кнопка</button>
+        </div>
+
+        <div class="mac-container">
+            <label class="mac-label" for="text-input">Текстовое поле:</label>
+            <input id="text-input" type="text" class="mac-input" placeholder="Введите текст">
+        
+            <div class="mac-field-group">
+                <input type="checkbox" id="checkbox" class="mac-checkbox">
+                <label class="mac-label" for="checkbox">Чекбокс</label>
+            </div>
+        
+            <div class="mac-field-group">
+                <input type="radio" id="radio1" name="radio-group" class="mac-radio">
+                <label class="mac-label" for="radio1">Радио 1</label>
+            </div>
+            <div class="mac-field-group">
+                <input type="radio" id="radio2" name="radio-group" class="mac-radio">
+                <label class="mac-label" for="radio2">Радио 2</label>
+            </div>
+        
+            <label class="mac-label" for="slider">Слайдер:</label>
+            <input type="range" id="slider" class="mac-slider" min="0" max="100">
+        </div>
+        <div class="mac-container">
+            <p>text <a href="index.html">Mainpage</a></p>
+        </div>
+        <div class="mac-container">
+            <p class="mac-text">Обычный текст</p>
+            <p class="mac-text-small">Маленький текст</p>
+            <p class="mac-text-large">Большой текст</p>
+            <p class="mac-text-muted">Текст с затенением</p>
+            <a href="#" class="mac-link">Ссылка</a>
+        </div>
+        
+        <ul class="mac-context-menu" id="context-menu">
+            <li class="mac-context-menu-item">Пункт 1</li>
+            <li class="mac-context-menu-item">Пункт 2</li>
+            <li class="mac-context-menu-item">Пункт 3</li>
+        </ul>
+        
+    </div>
+    <script>
+            document.addEventListener('contextmenu', (e) => {
+        e.preventDefault();
+        const menu = document.getElementById('context-menu');
+        menu.style.left = `${e.pageX}px`;
+        menu.style.top = `${e.pageY}px`;
+        menu.classList.add('active');
+    });
+
+    document.addEventListener('click', () => {
+        const menu = document.getElementById('context-menu');
+        menu.classList.remove('active');
+    });
+
+    </script>
+</body>
+</html>

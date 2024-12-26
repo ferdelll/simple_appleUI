@@ -1,0 +1,271 @@
+/* Основной стиль для кнопок в macOS */
+.mac-button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #333;
+    background: linear-gradient(to bottom, #f2f2f2, #d9d9d9);
+    border: 1px solid #b3b3b3;
+    border-radius: 6px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.6);
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+/* Эффект при наведении */
+.mac-button:hover {
+    background: linear-gradient(to bottom, #e6e6e6, #cccccc);
+    border-color: #999;
+}
+
+/* Эффект при нажатии */
+.mac-button:active {
+    background: linear-gradient(to bottom, #cccccc, #b3b3b3);
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Стили для кнопки с акцентом (например, основная кнопка) */
+.mac-button-accent {
+    background: linear-gradient(to bottom, #007aff, #005bb5);
+    color: white;
+    border: 1px solid #005bb5;
+}
+
+.mac-button-accent:hover {
+    background: linear-gradient(to bottom, #005bb5, #004a99);
+}
+
+.mac-button-accent:active {
+    background: linear-gradient(to bottom, #004a99, #003a7a);
+}
+
+/* Стили для кнопки отключенной */
+.mac-button-disabled {
+    background: linear-gradient(to bottom, #f2f2f2, #e6e6e6);
+    color: #a3a3a3;
+    border-color: #cccccc;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+/* ====== Общий стиль для контейнеров ====== */
+.mac-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 20px;
+    border: 1px solid #dcdcdc;
+    border-radius: 8px;
+    background: #f7f7f7;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    margin: auto;
+}
+
+/* ====== Метка ====== */
+.mac-label {
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 6px;
+    font-weight: 500;
+}
+
+/* ====== Текстовое поле ====== */
+.mac-input {
+    width: 95%;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background: #fff;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.2s ease-in-out;
+}
+
+.mac-input:focus {
+    border-color: #007aff;
+    outline: none;
+    box-shadow: 0 0 3px rgba(0, 122, 255, 0.6);
+}
+
+/* ====== Чекбокс ====== */
+.mac-checkbox {
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background: #fff;
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: background 0.2s ease-in-out, border-color 0.2s ease-in-out;
+}
+
+.mac-checkbox:checked {
+    background: #007aff;
+    border-color: #007aff;
+}
+
+.mac-checkbox:checked::after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 5px;
+    width: 4px;
+    height: 8px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+/* ====== Радиокнопка ====== */
+.mac-radio {
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    background: #fff;
+    cursor: pointer;
+    position: relative;
+    transition: border-color 0.2s ease-in-out, background 0.2s ease-in-out;
+}
+
+.mac-radio:checked {
+    background: #007aff;
+    border-color: #007aff;
+}
+
+.mac-radio:checked::after {
+    content: '';
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    width: 8px;
+    height: 8px;
+    background: white;
+    border-radius: 50%;
+}
+
+/* ====== Слайдер ====== */
+.mac-slider {
+    width: 100%;
+    -webkit-appearance: none;
+    height: 6px;
+    background: #ddd;
+    border-radius: 3px;
+    outline: none;
+    cursor: pointer;
+    transition: background 0.2s ease-in-out;
+}
+
+.mac-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    background: #007aff;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    transition: background 0.2s ease-in-out;
+}
+
+.mac-slider::-moz-range-thumb {
+    width: 16px;
+    height: 16px;
+    background: #007aff;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.2s ease-in-out;
+}
+
+/* ====== Дополнительные стили ====== */
+.mac-field-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+/* ====== Стили для текста ====== */
+.mac-text {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: #333;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.mac-text-small {
+    font-size: 12px;
+    color: #666;
+}
+
+.mac-text-large {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.mac-text-muted {
+    color: #999;
+}
+
+/* ====== Стили для ссылок ====== */
+.mac-link {
+    color: #007aff;
+    text-decoration: none;
+    transition: color 0.2s ease-in-out;
+}
+
+.mac-link:hover {
+    color: #005bb5;
+    text-decoration: underline;
+}
+
+.mac-link:active {
+    color: #003a7a;
+}
+
+/* ====== Контекстное меню ====== */
+.mac-context-menu {
+    position: absolute;
+    z-index: 9999;
+    background: #f9f9f9;
+    border: 1px solid #dcdcdc;
+    border-radius: 6px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 8px 0;
+    list-style: none;
+    display: none;
+}
+
+.mac-context-menu.active {
+    display: block;
+}
+
+.mac-context-menu-item {
+    padding: 8px 16px;
+    font-size: 14px;
+    color: #333;
+    cursor: pointer;
+    transition: background 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+.mac-context-menu-item:hover {
+    background: #007aff;
+    color: white;
+}
+
+.mac-context-menu-item:active {
+    background: #005bb5;
+}
+
+/* ====== Контейнеры для текста ====== */
+.mac-text-container {
+    padding: 16px;
+    border: 1px solid #dcdcdc;
+    border-radius: 6px;
+    background: #fff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: auto;
+}
