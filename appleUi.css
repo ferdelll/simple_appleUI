@@ -1,271 +1,362 @@
-/* Основной стиль для кнопок в macOS */
-.mac-button {
-    display: inline-block;
-    padding: 10px 20px;
+/* 
+ * Apple-inspired CSS Design System
+ * A modern, minimalist stylesheet following Apple's design principles
+ */
+
+:root {
+  /* Colors */
+  --apple-blue: #007AFF;
+  --apple-gray: #8E8E93;
+  --apple-red: #FF3B30;
+  --apple-green: #34C759;
+  --apple-black: #1D1D1F;
+  --apple-white: #F5F5F7;
+  
+  /* Typography */
+  --font-primary: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+  
+  /* Spacing */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.5s ease;
+  
+  /* Shadows */
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.12);
+  --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.14);
+}
+
+/* Base Reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-primary);
+  line-height: 1.5;
+  color: var(--apple-black);
+  background-color: var(--apple-white);
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: var(--spacing-md);
+}
+
+h1 {
+  font-size: 2.5rem;
+  letter-spacing: -0.025em;
+}
+
+h2 {
+  font-size: 2rem;
+  letter-spacing: -0.02em;
+}
+
+h3 {
+  font-size: 1.75rem;
+  letter-spacing: -0.015em;
+}
+
+h4 {
+  font-size: 1.5rem;
+}
+
+h5 {
+  font-size: 1.25rem;
+}
+
+h6 {
+  font-size: 1rem;
+}
+
+p {
+  margin-bottom: var(--spacing-md);
+  font-size: 1rem;
+  color: var(--apple-black);
+}
+
+a {
+  color: var(--apple-blue);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: color-mix(in srgb, var(--apple-blue) 80%, black);
+}
+
+/* Lists */
+ul, ol {
+  margin-bottom: var(--spacing-md);
+  padding-left: var(--spacing-lg);
+}
+
+li {
+  margin-bottom: var(--spacing-xs);
+}
+
+/* Blockquotes */
+blockquote {
+  margin: var(--spacing-lg) 0;
+  padding: var(--spacing-md) var(--spacing-lg);
+  border-left: 4px solid var(--apple-blue);
+  background-color: color-mix(in srgb, var(--apple-blue) 10%, white);
+  font-style: italic;
+}
+
+/* Forms */
+input, textarea, select {
+  width: 100%;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border: 1px solid var(--apple-gray);
+  border-radius: 8px;
+  font-family: var(--font-primary);
+  font-size: 1rem;
+  transition: all var(--transition-fast);
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: var(--apple-blue);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--apple-blue) 30%, transparent);
+}
+
+/* Buttons */
+button, .button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-sm) var(--spacing-lg);
+  border: none;
+  border-radius: 8px;
+  background-color: var(--apple-blue);
+  color: white;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+button:hover, .button:hover {
+  background-color: color-mix(in srgb, var(--apple-blue) 80%, black);
+  transform: translateY(-1px);
+}
+
+button:active, .button:active {
+  transform: translateY(0);
+}
+
+/* Checkboxes and Radio buttons */
+input[type="checkbox"], input[type="radio"] {
+  width: auto;
+  margin-right: var(--spacing-xs);
+}
+
+/* Tables */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: var(--spacing-lg);
+}
+
+th, td {
+  padding: var(--spacing-sm) var(--spacing-md);
+  text-align: left;
+  border-bottom: 1px solid color-mix(in srgb, var(--apple-gray) 30%, transparent);
+}
+
+th {
+  font-weight: 600;
+  background-color: color-mix(in srgb, var(--apple-gray) 10%, white);
+}
+
+/* Media */
+img, video {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* Layout Containers */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
+
+header, nav, footer {
+  padding: var(--spacing-lg) 0;
+}
+
+/* Cards */
+.card {
+  background: white;
+  border-radius: 12px;
+  padding: var(--spacing-lg);
+  box-shadow: var(--shadow-md);
+  transition: transform var(--transition-fast);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Modal */
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: var(--spacing-lg);
+  border-radius: 12px;
+  box-shadow: var(--shadow-lg);
+  z-index: 1000;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  z-index: 999;
+}
+
+/* Progress Bar */
+.progress {
+  width: 100%;
+  height: 6px;
+  background: color-mix(in srgb, var(--apple-blue) 20%, transparent);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  background: var(--apple-blue);
+  transition: width var(--transition-normal);
+}
+
+/* Notifications */
+.notification {
+  padding: var(--spacing-md);
+  margin-bottom: var(--spacing-md);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.notification.success {
+  background-color: color-mix(in srgb, var(--apple-green) 10%, white);
+  border: 1px solid var(--apple-green);
+}
+
+.notification.error {
+  background-color: color-mix(in srgb, var(--apple-red) 10%, white);
+  border: 1px solid var(--apple-red);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  html {
     font-size: 14px;
-    font-weight: 500;
-    color: #333;
-    background: linear-gradient(to bottom, #f2f2f2, #d9d9d9);
-    border: 1px solid #b3b3b3;
-    border-radius: 6px;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.6);
-    cursor: pointer;
-    transition: all 0.2s ease-in-out;
+  }
+  
+  .container {
+    padding: 0 var(--spacing-sm);
+  }
+  
+  h1 {
+    font-size: 2rem;
+  }
+  
+  h2 {
+    font-size: 1.75rem;
+  }
+  
+  .card {
+    padding: var(--spacing-md);
+  }
 }
 
-/* Эффект при наведении */
-.mac-button:hover {
-    background: linear-gradient(to bottom, #e6e6e6, #cccccc);
-    border-color: #999;
-}
-
-/* Эффект при нажатии */
-.mac-button:active {
-    background: linear-gradient(to bottom, #cccccc, #b3b3b3);
-    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.3);
-}
-
-/* Стили для кнопки с акцентом (например, основная кнопка) */
-.mac-button-accent {
-    background: linear-gradient(to bottom, #007aff, #005bb5);
-    color: white;
-    border: 1px solid #005bb5;
-}
-
-.mac-button-accent:hover {
-    background: linear-gradient(to bottom, #005bb5, #004a99);
-}
-
-.mac-button-accent:active {
-    background: linear-gradient(to bottom, #004a99, #003a7a);
-}
-
-/* Стили для кнопки отключенной */
-.mac-button-disabled {
-    background: linear-gradient(to bottom, #f2f2f2, #e6e6e6);
-    color: #a3a3a3;
-    border-color: #cccccc;
-    cursor: not-allowed;
-    box-shadow: none;
-}
-/* ====== Общий стиль для контейнеров ====== */
-.mac-container {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    padding: 20px;
-    border: 1px solid #dcdcdc;
-    border-radius: 8px;
-    background: #f7f7f7;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-    max-width: 400px;
-    margin: auto;
-}
-
-/* ====== Метка ====== */
-.mac-label {
-    font-size: 14px;
-    color: #333;
-    margin-bottom: 6px;
-    font-weight: 500;
-}
-
-/* ====== Текстовое поле ====== */
-.mac-input {
-    width: 95%;
-    padding: 10px;
-    font-size: 14px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    background: #fff;
-    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
-    transition: border-color 0.2s ease-in-out;
-}
-
-.mac-input:focus {
-    border-color: #007aff;
-    outline: none;
-    box-shadow: 0 0 3px rgba(0, 122, 255, 0.6);
-}
-
-/* ====== Чекбокс ====== */
-.mac-checkbox {
-    appearance: none;
-    width: 16px;
-    height: 16px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    background: #fff;
-    cursor: pointer;
-    display: inline-block;
-    position: relative;
-    transition: background 0.2s ease-in-out, border-color 0.2s ease-in-out;
-}
-
-.mac-checkbox:checked {
-    background: #007aff;
-    border-color: #007aff;
-}
-
-.mac-checkbox:checked::after {
-    content: '';
-    position: absolute;
-    top: 2px;
-    left: 5px;
-    width: 4px;
-    height: 8px;
-    border: solid white;
-    border-width: 0 2px 2px 0;
-    transform: rotate(45deg);
-}
-
-/* ====== Радиокнопка ====== */
-.mac-radio {
-    appearance: none;
-    width: 16px;
-    height: 16px;
-    border: 1px solid #ccc;
-    border-radius: 50%;
-    background: #fff;
-    cursor: pointer;
-    position: relative;
-    transition: border-color 0.2s ease-in-out, background 0.2s ease-in-out;
-}
-
-.mac-radio:checked {
-    background: #007aff;
-    border-color: #007aff;
-}
-
-.mac-radio:checked::after {
-    content: '';
-    position: absolute;
-    top: 4px;
-    left: 4px;
-    width: 8px;
-    height: 8px;
-    background: white;
-    border-radius: 50%;
-}
-
-/* ====== Слайдер ====== */
-.mac-slider {
-    width: 100%;
-    -webkit-appearance: none;
-    height: 6px;
-    background: #ddd;
-    border-radius: 3px;
-    outline: none;
-    cursor: pointer;
-    transition: background 0.2s ease-in-out;
-}
-
-.mac-slider::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 16px;
-    height: 16px;
-    background: #007aff;
-    border-radius: 50%;
-    cursor: pointer;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-    transition: background 0.2s ease-in-out;
-}
-
-.mac-slider::-moz-range-thumb {
-    width: 16px;
-    height: 16px;
-    background: #007aff;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: background 0.2s ease-in-out;
-}
-
-/* ====== Дополнительные стили ====== */
-.mac-field-group {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-/* ====== Стили для текста ====== */
-.mac-text {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    color: #333;
-    line-height: 1.6;
-    margin: 0;
-}
-
-.mac-text-small {
+@media (max-width: 480px) {
+  html {
     font-size: 12px;
-    color: #666;
+  }
+  
+  button, .button {
+    width: 100%;
+  }
+  
+  .modal {
+    width: 90%;
+  }
 }
 
-.mac-text-large {
-    font-size: 18px;
-    font-weight: bold;
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.mac-text-muted {
-    color: #999;
+.fade-in {
+  animation: fadeIn var(--transition-normal);
 }
 
-/* ====== Стили для ссылок ====== */
-.mac-link {
-    color: #007aff;
-    text-decoration: none;
-    transition: color 0.2s ease-in-out;
+/* Grid System */
+.grid {
+  display: grid;
+  gap: var(--spacing-md);
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 }
 
-.mac-link:hover {
-    color: #005bb5;
-    text-decoration: underline;
+/* Flexbox Utilities */
+.flex {
+  display: flex;
 }
 
-.mac-link:active {
-    color: #003a7a;
+.flex-col {
+  flex-direction: column;
 }
 
-/* ====== Контекстное меню ====== */
-.mac-context-menu {
-    position: absolute;
-    z-index: 9999;
-    background: #f9f9f9;
-    border: 1px solid #dcdcdc;
-    border-radius: 6px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 8px 0;
-    list-style: none;
-    display: none;
+.items-center {
+  align-items: center;
 }
 
-.mac-context-menu.active {
-    display: block;
+.justify-between {
+  justify-content: space-between;
 }
 
-.mac-context-menu-item {
-    padding: 8px 16px;
-    font-size: 14px;
-    color: #333;
-    cursor: pointer;
-    transition: background 0.2s ease-in-out, color 0.2s ease-in-out;
-}
-
-.mac-context-menu-item:hover {
-    background: #007aff;
-    color: white;
-}
-
-.mac-context-menu-item:active {
-    background: #005bb5;
-}
-
-/* ====== Контейнеры для текста ====== */
-.mac-text-container {
-    padding: 16px;
-    border: 1px solid #dcdcdc;
-    border-radius: 6px;
-    background: #fff;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-    max-width: 600px;
-    margin: auto;
+.gap-md {
+  gap: var(--spacing-md);
 }
